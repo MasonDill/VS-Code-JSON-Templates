@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Configure VSCode behavior
+            "name": "Rust (gdb) Build & Debug file",
+            "program": "${workspaceRoot}/target/debug/{Cargo.toml:package.name}", // This is the only line that needs to be changed, VS-code cannot dynamically evaluate the package name
+            "avoidWindowsConsoleRedirection": false,
+            "externalConsole": false,
+            // Configure the target application
+            "args": [],
+            "cwd": "${fileDirname}",
+            "environment": [],
+            // Configure the debugger
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            //"miDebuggerArgs": "",
+            "stopAtEntry": false,
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to AT&T",
+                    "text": "-gdb-set disassembly-flavor att",
+                    "ignoreFailures": false
+                }
+            ],
+            // Additional properties
+            "request": "launch",
+            "type": "cppdbg",
+            // Set up prelaunch
+            "preLaunchTask": "Rust: cargo build active file"
+        }
+    ]
+}
