@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Configure VSCode behavior
+            "name": "Python Debug Active File",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            // Configure the target application
+            "args": [],
+            "cwd": "${fileDirname}",
+            // Configure the debugger
+
+            // Additional properties
+            "request": "launch",
+            "type": "debugpy"
+        }
+    ]
+}
